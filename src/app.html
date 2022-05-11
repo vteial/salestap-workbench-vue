@@ -1,0 +1,51 @@
+<header class="fixed-top bg-light border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">{{appName}}</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" uib-collapse="isCollapsed">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <router-link to="/home" class="nav-link px-2" :class="{ active: $route.name === 'Home' }">
+                            <i class="fa fa-home px-1"></i> Home
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/products" class="nav-link px-2" :class="{ active: $route.name === 'Products' }">
+                            Products
+                        </router-link>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button type="button" class="btn btn-warning" @(click)="signOut()">
+                        <i class="bi bi-box-arrow-in-left px-1"></i>Sign-Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container p-1">
+        <strong class="text-capitalize">{{$route.name}}</strong>
+        <!--
+        <span class="float-end" *ngIf="userProfile">
+            <strong class="text-primary text-capitalize me-2">{{ userRole }}</strong>
+            /
+        <strong class="text-info ms-2">{{ userProfile.firstName }} {{ userProfile.lastName }}</strong>
+        </span>
+        -->
+    </div>
+</header>
+
+<main role="main" class="flex-shrink-0">
+    <br/>
+    <div class="container">
+        <br/>
+        <router-view></router-view>
+    </div>
+    <br/>
+</main>
+
+<footer class="footer bg-light border-top">
+    <div class="container">
+        <p class="text-center my-2">&copy; 2022 {{appName}}</p>
+    </div>
+</footer>

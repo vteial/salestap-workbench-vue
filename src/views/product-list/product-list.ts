@@ -79,9 +79,9 @@ export default defineComponent({
             });
         },
         remove(item: Product) {
-            console.log(this.item);
+            console.log(item);
             this.message = '';
-            productService.delete(this.item.id).then(res => {
+            productService.delete(item.id).then(res => {
                 if( res.status === 204) {
                     this.refresh();
                 } else {
